@@ -7,3 +7,9 @@ header {
     background-color: aquamarine;
     padding: 1em 2em;
 }
+.card {
+    background-color: rgb(188, 236, 230);
+    border: 1px black solid;
+    margin: 20px;
+    padding: 5px;
+}
