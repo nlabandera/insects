@@ -20,6 +20,7 @@ import { InsectDetailsComponent } from './insect-details/insect-details.componen
     AppRoutingModule,
     RouterModule.forRoot([
       { path: '', component: InsectsComponent},
+      { path: 'insects/:insectId', component: InsectDetailsComponent }
     ]),
   ],
   providers: [],

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
+import { Insect, insects } from '../insects';
 
 @Component({
   selector: 'app-insect-details',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InsectDetailsComponent implements OnInit {
 
-  constructor() { }
+  insect: Insect | undefined;
 
-  ngOnInit(): void {
+  constructor(
+    private route: ActivatedRoute,
+  ) { }
+
+  ngOnInit() {
+    //Get insect id from the current route.
+    const routeParams = this.route.snapshot.paramMap;
+    const insectIdFromRoute = Number(routeParams.get('insectId'));
+    //Find the insect that correspond with the id provided in the route
+    this.insect = insects.find(insect => insect.id === insectIdFromRoute);
   }
 
 }
