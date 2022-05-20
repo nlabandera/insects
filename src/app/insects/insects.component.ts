@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { insects } from '../insects';
 
 @Component({
   selector: 'app-insects',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./insects.component.css']
 })
 export class InsectsComponent implements OnInit {
+
+  insects = insects;
 
   constructor() { }
 

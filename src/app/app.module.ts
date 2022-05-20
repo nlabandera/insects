@@ -15,7 +15,10 @@ import { InsectsComponent } from './insects/insects.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RouterModule.forRoot([
+      { path: '', component: InsectsComponent},
+    ]),
   ],
   providers: [],
   bootstrap: [AppComponent]
