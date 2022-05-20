@@ -1,8 +1,8 @@
 export interface Insect {
     id: number,
-    name: string | null,
+    name: string,
     type: string,
-    description: string
+    description: string | undefined
 }
 
 export const insects = [
@@ -10,18 +10,18 @@ export const insects = [
         id: 1,
         name: 'Rigoberta',
         type: 'butterfly',
-        description: 'Irure culpa tempor velit id ad ea ad pariatur ipsum ipsum.'
+        description: 'Deserunt consectetur labore fugiat laborum officia non tempor aute do labore. Velit est elit velit laboris laboris est duis amet culpa cillum. Irure cupidatat magna qui et sit.'
     },
     {
         id: 2,
         name: 'Chuchamba',
         type: 'bee',
-        description: 'Qui quis exercitation incididunt cillum ea laboris.'
+        description: 'Proident esse exercitation irure laborum esse et magna. Ad sunt do cillum ad aliquip officia aliqua pariatur reprehenderit. Velit anim ex dolor irure laborum et dolor eiusmod voluptate. Incididunt commodo qui tempor tempor sint esse do.'
     },
     {
         id: 3,
-        name: null,
+        name: 'Margarita',
         type: 'bee',
-        description: 'Qui quis exercitation incididunt cillum ea laboris.'
+        description: undefined
     }
 ]
