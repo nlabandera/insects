@@ -1,15 +1,2 @@
 /* You can add global styles to this file, and also import other style files */
-*{
-    margin: 0;
-    padding: 0;
-}
-header {
-    background-color: aquamarine;
-    padding: 1em 2em;
-}
-.card {
-    background-color: rgb(188, 236, 230);
-    border: 1px black solid;
-    margin: 20px;
-    padding: 5px;
-}
+@import url(../node_modules/bootstrap/dist/css/bootstrap.min.css);
