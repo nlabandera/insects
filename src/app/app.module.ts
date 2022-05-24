@@ -21,8 +21,9 @@ import { HomeComponent } from './home/home.component';
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot([
+      { path: '', component: HomeComponent},
       { path: 'insects', component: InsectsComponent},
-      { path: '',redirectTo:'insects', pathMatch:'full'},
+      // { path: '',redirectTo:'insects', pathMatch:'full'},
       { path: 'insects/:insectId', component: InsectDetailsComponent }
     ]),
   ],
