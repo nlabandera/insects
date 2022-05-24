@@ -7,20 +7,23 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { InsectsComponent } from './insects/insects.component';
 import { InsectDetailsComponent } from './insect-details/insect-details.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     InsectsComponent,
-    InsectDetailsComponent
+    InsectDetailsComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot([
+      { path: '', component: HomeComponent},
       { path: 'insects', component: InsectsComponent},
-      { path: '',redirectTo:'insects', pathMatch:'full'},
+      // { path: '',redirectTo:'insects', pathMatch:'full'},
       { path: 'insects/:insectId', component: InsectDetailsComponent }
     ]),
   ],
