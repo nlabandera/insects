@@ -19,7 +19,8 @@ import { InsectDetailsComponent } from './insect-details/insect-details.componen
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot([
-      { path: '', component: InsectsComponent},
+      { path: 'insects', component: InsectsComponent},
+      { path: '',redirectTo:'insects', pathMatch:'full'},
       { path: 'insects/:insectId', component: InsectDetailsComponent }
     ]),
   ],
