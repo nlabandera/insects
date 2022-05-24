@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 import { Insect, insects } from '../insects';
 
@@ -14,7 +15,12 @@ export class InsectDetailsComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private location: Location
   ) { }
+
+  goBack(): void{
+    this.location.back();
+  }
 
   ngOnInit() {
     //Get insect id from the current route.
