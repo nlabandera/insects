@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { InsectsComponent } from './insects/insects.component';
 import { InsectDetailsComponent } from './insect-details/insect-details.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     InsectsComponent,
-    InsectDetailsComponent
+    InsectDetailsComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
