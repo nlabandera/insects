@@ -10,14 +10,15 @@
         </div>
     </section>
     <section class="row">
+      {{ insects | json }}
         <form class="col col-4">
             <div class="form-group">
               <label>Insect's Name</label>
-              <input type="text" [(ngModel)]="iname" class="form-control">
+              <input type="text" [(ngModel)]="iname" name="name" class="form-control">
             </div>
             <div class="form-group">
               <label>Type</label>
-              <input type="text" [(ngModel)]="itype" class="form-control">
+              <input type="text" [(ngModel)]="itype" name="type" class="form-control">
             </div>
             <button type="submit" class="btn btn-primary" (click)="addInsect()">Save</button>
           </form>

@@ -8,7 +8,8 @@ import { Insect, insects } from './insects';
 export class InsectService {
 
   insects = insects;
-
+  
+  
   constructor() { }
 
   //Get method using of method
@@ -18,5 +19,6 @@ export class InsectService {
   }
   addInsect(insect:Insect){
     this.insects.push(insect);
+    // this.insects.push({name:this.iname, type:this.itype,id:99, description:''});
   }
 }
