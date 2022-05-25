@@ -2,7 +2,7 @@ export interface Insect {
     id: number,
     name: string,
     type: string,
-    description: string | undefined
+    description?: string | undefined
 }
 
 export const insects = [

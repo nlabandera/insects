@@ -10,13 +10,19 @@ import { Insect, insects } from '../insects';
 export class InsectsComponent implements OnInit {
 
   // insects = insects;
-  insects: Insect[]=[]
+  insects: Insect[]=[];
+  iname: string = "";
+  itype: string = "";
 
   constructor(private insectService:InsectService) { }
 
   getInsect():void{
     this.insectService.getInsects()
     .subscribe(insects => this.insects = insects)
+  }
+
+  addInsect(){
+    this.insectService.addInsect({name:this.iname, type:this.itype,id:99});
   }
 
   ngOnInit(): void {

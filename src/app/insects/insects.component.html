@@ -13,13 +13,13 @@
         <form class="col col-4">
             <div class="form-group">
               <label>Insect's Name</label>
-              <input type="text" class="form-control">
+              <input type="text" [(ngModel)]="iname" class="form-control">
             </div>
             <div class="form-group">
               <label>Type</label>
-              <input type="text" class="form-control">
+              <input type="text" [(ngModel)]="itype" class="form-control">
             </div>
-            <button type="submit" class="btn btn-primary">Save</button>
+            <button type="submit" class="btn btn-primary" (click)="addInsect()">Save</button>
           </form>
     </section>
 </article>

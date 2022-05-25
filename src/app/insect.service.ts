@@ -7,11 +7,16 @@ import { Insect, insects } from './insects';
 })
 export class InsectService {
 
+  insects = insects;
+
   constructor() { }
 
   //Get method using of method
   getInsects():Observable<Insect[]>{
     // const all_insects = of(insects);
-    return of(insects);
+    return of(this.insects);
+  }
+  addInsect(insect:Insect){
+    this.insects.push(insect);
   }
 }
