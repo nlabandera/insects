@@ -7,7 +7,7 @@
         <p>Insect type: <span>{{insect.type}}</span></p>
         <div class="row">
           <button class="col btn bg-info text-white mx-3" [routerLink]="['/insects', insect.id]">Know more</button>
-          <button class="col btn bg-danger text-white mx-3">Delete insect</button>
+          <button class="col btn bg-danger text-white mx-3" (click)="deleteInsect(insect.id)">Delete insect</button>
         </div>
       </div>
     </div>

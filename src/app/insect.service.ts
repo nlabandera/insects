@@ -21,4 +21,9 @@ export class InsectService {
     this.insects.push(insect);
     // this.insects.push({name:this.iname, type:this.itype,id:99, description:''});
   }
+  deleteInsect(id:number){
+    const index: number = insects.indexOf(this.insects[id-1])
+    console.log(index);
+    this.insects.splice(index,1);
+  }
 }

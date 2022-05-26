@@ -16,7 +16,7 @@ export class InsectsComponent implements OnInit {
 
   constructor(private insectService:InsectService) { }
 
-  getInsect():void{
+  getInsects():void{
     this.insectService.getInsects()
     .subscribe(insects => this.insects = insects)
   }
@@ -25,8 +25,14 @@ export class InsectsComponent implements OnInit {
     this.insectService.addInsect({id:this.insects.length+1,name:this.iname, type:this.itype});
   }
 
+  deleteInsect(id:number){
+    this.insectService.deleteInsect(id);
+    // console.log(this.insects);
+  }
+
   ngOnInit(): void {
-    this.getInsect();
+    this.getInsects();
+    console.log(this.insects);
   }
 
 }
