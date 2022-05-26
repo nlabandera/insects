@@ -1,5 +1,5 @@
-<div class="insects">
-    <div class="row mx-1 my-5">
+<article class="insects container">
+    <section class="row mx-1 my-5">
         <div *ngFor="let insect of insects" class="insect-card card col-md-4 col-xs-12">
             <div class="card-body">
                 <img src="" alt="insect{{insect.id}}">
@@ -8,5 +8,19 @@
                 <button class="btn bg-info text-white" [routerLink]="['/insects', insect.id]">Know more</button>
             </div>
         </div>
-    </div>
-</div>
+    </section>
+    <section class="row">
+      {{ insects | json }}
+        <form class="col col-4">
+            <div class="form-group">
+              <label>Insect's Name</label>
+              <input type="text" [(ngModel)]="iname" name="name" class="form-control">
+            </div>
+            <div class="form-group">
+              <label>Type</label>
+              <input type="text" [(ngModel)]="itype" name="type" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary" (click)="addInsect()">Save</button>
+          </form>
+    </section>
+</article>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgModule, OnInit } from '@angular/core';
 import { InsectService } from '../insect.service';
 import { Insect, insects } from '../insects';
 
@@ -10,13 +10,19 @@ import { Insect, insects } from '../insects';
 export class InsectsComponent implements OnInit {
 
   // insects = insects;
-  insects: Insect[]=[]
+  insects: Insect[]=[];
+  iname!: string;
+  itype!: string;
 
   constructor(private insectService:InsectService) { }
 
   getInsect():void{
     this.insectService.getInsects()
     .subscribe(insects => this.insects = insects)
+  }
+
+  addInsect(){
+    this.insectService.addInsect({id:this.insects.length+1,name:this.iname, type:this.itype});
   }
 
   ngOnInit(): void {
