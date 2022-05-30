@@ -9,7 +9,6 @@ export class InsectService {
 
   insects = insects;
   
-  
   constructor() { }
 
   //Get method using of method
@@ -19,11 +18,13 @@ export class InsectService {
   }
   addInsect(insect:Insect){
     this.insects.push(insect);
-    // this.insects.push({name:this.iname, type:this.itype,id:99, description:''});
   }
   deleteInsect(id:number){
-    const index: number = insects.indexOf(this.insects[id-1])
-    console.log(index);
-    this.insects.splice(index,1);
+    this.insects.splice(id,1);
+    console.log(id);
+  }
+  trial(id:number){
+    const target = this.insects.find(insect => insect.id === id);
+    console.log(target);
   }
 }

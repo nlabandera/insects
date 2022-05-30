@@ -1,13 +1,14 @@
 <article class="insects container">
   <section class="row mx-1 my-5">
-    <div *ngFor="let insect of insects" class="insect-card card col-md-4 col-xs-12">
+    <div *ngFor="let insect of insects; let i = index" class="insect-card card col-md-4 col-xs-12">
       <div class="card-body">
         <img src="" alt="insect{{insect.id}}">
         <h1>{{insect.name}}</h1>
         <p>Insect type: <span>{{insect.type}}</span></p>
         <div class="row">
           <button class="col btn bg-info text-white mx-3" [routerLink]="['/insects', insect.id]">Know more</button>
-          <button class="col btn bg-danger text-white mx-3" (click)="deleteInsect(insect.id)">Delete insect</button>
+          <button class="col btn bg-danger text-white mx-3" (click)="deleteInsect(i)">Delete insect</button>
+          <button (click)="trial(insect.id)">X</button>
         </div>
       </div>
     </div>
