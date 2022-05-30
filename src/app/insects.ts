@@ -5,6 +5,8 @@ export interface Insect {
     description?: string | undefined
 }
 
+export let count: number = 4;
+
 export const insects = [
     {
         id: 1,
