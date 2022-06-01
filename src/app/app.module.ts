@@ -9,6 +9,7 @@ import { HeaderComponent } from './header/header.component';
 import { InsectsComponent } from './insects/insects.component';
 import { InsectDetailsComponent } from './insect-details/insect-details.component';
 import { HomeComponent } from './home/home.component';
+import { CatsComponent } from './cats/cats.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { HomeComponent } from './home/home.component';
     InsectsComponent,
     InsectDetailsComponent,
     HomeComponent,
+    CatsComponent,
   ],
   imports: [
     FormsModule,
@@ -24,6 +26,7 @@ import { HomeComponent } from './home/home.component';
     AppRoutingModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent},
+      { path: 'cats', component: CatsComponent},
       { path: 'insects', component: InsectsComponent},
       // { path: '',redirectTo:'insects', pathMatch:'full'},
       { path: 'insects/:insectId', component: InsectDetailsComponent }
