@@ -1,4 +1,7 @@
-<p>cats works!</p>
-<div *ngFor="let breed of breeds">
-    <img [src]="breed.image.url" alt="" width="100px">
-</div>
+<main>
+  <aside class="w-25">
+    <ul class="list-group-flush">
+      <li class="list-group-item" *ngFor="let breed of breeds">{{ breed.name }}</li>
+    </ul>
+  </aside>
+</main>

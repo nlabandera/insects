@@ -19,7 +19,7 @@ export class CatsComponent implements OnInit {
 
   getBreeds(){
     this.catService.getBreeds().subscribe(res=>{
-      this.breeds = res;
+      this.breeds = res.slice(0,30);
       console.log(res)
     })
   }
