@@ -11,6 +11,7 @@ import { InsectsComponent } from './insects/insects.component';
 import { InsectDetailsComponent } from './insect-details/insect-details.component';
 import { HomeComponent } from './home/home.component';
 import { CatsComponent } from './cats/cats.component';
+import { CatDetailsComponent } from './cats/cat-details/cat-details.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { CatsComponent } from './cats/cats.component';
     InsectDetailsComponent,
     HomeComponent,
     CatsComponent,
+    CatDetailsComponent,
   ],
   imports: [
     FormsModule,
@@ -29,6 +31,8 @@ import { CatsComponent } from './cats/cats.component';
     RouterModule.forRoot([
       { path: '', component: HomeComponent},
       { path: 'cats', component: CatsComponent},
+      { path: 'cats/:breedId', component: CatDetailsComponent },
+      { path: 'cats/:breedId',redirectTo:'cats', pathMatch:'full'},
       { path: 'insects', component: InsectsComponent},
       // { path: '',redirectTo:'insects', pathMatch:'full'},
       { path: 'insects/:insectId', component: InsectDetailsComponent }
