@@ -8,13 +8,21 @@ export class CatImage {
   public height?: number;
   public url?: string;
 }
+export class Weight {
+  imperial?: string;
+  metric?: string;
+}
 export class Breed {
 
     public id?: string;
     public name?: string;
     public origin?: string;
+    public country_code?: string;
     public image?: CatImage;
-    // public cat_img_url?:string = "https://cdn2.thecatapi.com/images/" ;
+    public weight?: Weight;
+    public temperament?: string;
+    public wiki_url?: string;
+    public life_span?: string;
     public description?: string;
     public reference_image_id?: string;
 

@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
-import { Breed, CatService } from '../cat.service';
+import { Breed, CatService, Weight } from '../cat.service';
 import { ArrayType } from '@angular/compiler';
 
 @Component({
@@ -11,6 +11,7 @@ import { ArrayType } from '@angular/compiler';
 })
 export class CatDetailsComponent implements OnInit {
   @Input() public breed?: Breed;
+  public weight?: Weight;
 
   constructor(
     private location: Location,
