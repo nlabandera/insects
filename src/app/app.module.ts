@@ -12,6 +12,7 @@ import { InsectDetailsComponent } from './insect-details/insect-details.componen
 import { HomeComponent } from './home/home.component';
 import { CatsComponent } from './cats/cats.component';
 import { CatDetailsComponent } from './cats/cat-details/cat-details.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { CatDetailsComponent } from './cats/cat-details/cat-details.component';
       // { path: '',redirectTo:'insects', pathMatch:'full'},
       { path: 'insects/:insectId', component: InsectDetailsComponent }
     ]),
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
