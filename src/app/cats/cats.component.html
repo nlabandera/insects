@@ -1,0 +1,9 @@
+<main class="row">
+  <aside class="w-25 col col-6">
+    <ul class="list-group-flush">
+      <a *ngFor="let breed of breeds" routerLink="/cats/{{breed.id}}">
+        <li class="list-group-item">{{ breed.name }}</li>
+      </a>
+    </ul>
+  </aside>
+</main>
