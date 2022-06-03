@@ -32,7 +32,7 @@ import { CatDetailsComponent } from './cats/cat-details/cat-details.component';
       { path: '', component: HomeComponent},
       { path: 'cats', component: CatsComponent},
       { path: 'cats/:breedId', component: CatDetailsComponent },
-      { path: 'cats/:breedId',redirectTo:'cats', pathMatch:'full'},
+      // { path: 'cats/:breedId',redirectTo:'cats', pathMatch:'full'},
       { path: 'insects', component: InsectsComponent},
       // { path: '',redirectTo:'insects', pathMatch:'full'},
       { path: 'insects/:insectId', component: InsectDetailsComponent }
