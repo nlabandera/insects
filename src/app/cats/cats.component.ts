@@ -1,27 +1,55 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CatService, Breed, CatImage } from './cat.service';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-cats',
   templateUrl: './cats.component.html',
   styleUrls: ['./cats.component.css']
 })
-export class CatsComponent implements OnInit {
+export class CatsComponent implements OnInit, AfterViewInit {
+  @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
+  breeds: Breed[] = [];
+  displayedColumns: string[] = ['breeds', 'country_code', 'more_info'];
+  table_size: number = 0;
+  constructor(
+    public catService: CatService,
+    private cdr: ChangeDetectorRef
+  ) { }
 
-  breeds:any = [];
-  constructor(public catService: CatService) { }
 
   ngOnInit(): void {
-    this.getBreeds()
-    console.log(this.breeds.id)
+    // First call: request all to inicialize total size:
+    this.catService.getBreeds().subscribe(res => {
+      this.table_size = res.length;
+    });
+
+    // Second call: request default table breeds
+    this.catService.getBreeds(0,5).subscribe(res => {
+      this.breeds = res;
+    })
+
   }
 
-  getBreeds(){
-    this.catService.getBreeds().subscribe(res=>{
-      this.breeds = res.slice(0,30);
-      console.log(res)
-    })
+  ngAfterViewInit(): void {
+    console.log(this.paginator);
+    this.paginator?.page.subscribe(pageEvent => {
+      console.log(pageEvent);
+      this.catService.getBreeds(pageEvent.pageIndex, pageEvent.pageSize).subscribe(data => {
+        this.breeds = data;
+        this.cdr.detectChanges();
+        console.log('this.breeds: '+this.breeds);
+      });
+    });
+  }
+
+  getBreeds() {
+    /* this.catService.getBreeds(0,10).subscribe(res => {
+      this.breeds = res;
+      this.table_size = res.length;
+    }) */
   }
 
 }
