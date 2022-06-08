@@ -15,7 +15,7 @@ export class CatsComponent implements OnInit, AfterViewInit {
   @ViewChild(MatSort) sort = new MatSort();
 
   // breeds: Breed[] = [];
-  dataSource!: MatTableDataSource<Breed>;
+  dataSource = new MatTableDataSource<Breed>();
   displayedColumns: string[] = ['breeds', 'country_code', 'more_info'];
   desc: string = 'desc';
   table_size: number = 0;
@@ -60,7 +60,6 @@ export class CatsComponent implements OnInit, AfterViewInit {
       this.dataSource = new MatTableDataSource(res);
       this.dataSource.sort = this.sort;
     });
-
 
   }
 
