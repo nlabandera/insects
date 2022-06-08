@@ -1,12 +1,12 @@
 <div class="cat-app">
   <div class="breed-content"> <!-- Breed content -->
-    <table class="breed-table w-100" mat-table [dataSource]="breeds" matSort>
+    <table class="breed-table w-100" mat-table [dataSource]="dataSource" matSort #empTbSort="matSort">
       <ng-container matColumnDef="breeds">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header class="bg-primary px-2">Breed</th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header="name" class="bg-primary px-2">Breed</th>
         <td mat-cell *matCellDef="let breed" class="bg-white text-dark px-2">{{breed.name}}</td>
       </ng-container>
       <ng-container matColumnDef="country_code">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header class="bg-primary">Code</th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header="c" class="bg-primary">Code</th>
         <td mat-cell *matCellDef="let breed" class="bg-white text-dark px-2">{{breed.country_code}}</td>
       </ng-container>
       <ng-container matColumnDef="more_info">

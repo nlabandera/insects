@@ -45,8 +45,11 @@ export class CatService {
     private httpClient: HttpClient
   ) { }
 
+  getAllBreeds(): Observable<Breed[]> {
+    return this.httpClient.get<Breed[]>(this.catApi + '/breeds', this.httpHeader);
+  }
 
-  getBreeds(page?: number, limit?: number): Observable<Breed[]> {
+  getBreeds(page?: number, limit?: number, order?:string): Observable<Breed[]> {
     const params_options: any ={};
     if (typeof(page) === "number" && page > -1 && typeof(limit) === "number" && limit > 0){
       params_options['page']= page;
