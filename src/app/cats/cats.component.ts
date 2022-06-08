@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { CatService, Breed, CatImage } from './cat.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
+import { MatSort, Sort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-cats',
@@ -11,11 +12,15 @@ import { MatPaginator, PageEvent } from '@angular/material/paginator';
 })
 export class CatsComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
-  breeds: Breed[] = [];
+  @ViewChild(MatSort) sort = new MatSort();
+
+  // breeds: Breed[] = [];
+  dataSource = new MatTableDataSource<Breed>();
   displayedColumns: string[] = ['breeds', 'country_code', 'more_info'];
+  desc: string = 'desc';
   table_size: number = 0;
   page_size: number = 5;
-  page_size_options: number [] = [5,10]
+  page_size_options: number[] = [5, 10];
   constructor(
     public catService: CatService,
     private cdr: ChangeDetectorRef
@@ -24,19 +29,22 @@ export class CatsComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.getBreeds();
+    console.log(this.sort);
 
   }
 
   ngAfterViewInit(): void {
+
     console.log(this.paginator);
     this.paginator?.page.subscribe(pageEvent => {
-      console.log(pageEvent);
-      this.catService.getBreeds(pageEvent.pageIndex, pageEvent.pageSize).subscribe(data => {
-        this.breeds = data;
+      this.catService.getBreeds(pageEvent.pageIndex, pageEvent.pageSize, this.desc).subscribe(data => {
+        // this.breeds = data;
+        this.dataSource.data = data;
         this.cdr.detectChanges();
-        console.log('this.breeds: ' + this.breeds);
       });
+
     });
+    // ;
   }
 
   getBreeds() {
@@ -47,9 +55,12 @@ export class CatsComponent implements OnInit, AfterViewInit {
     });
 
     // Second call: request default table breeds
-    this.catService.getBreeds(0, this.page_size).subscribe(res => {
-      this.breeds = res;
+    this.catService.getBreeds(0, this.page_size, this.desc).subscribe(res => {
+      // this.breeds = res;
+      this.dataSource = new MatTableDataSource(res);
+      this.dataSource.sort = this.sort;
     });
+
   }
 
 }
