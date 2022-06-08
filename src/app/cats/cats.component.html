@@ -1,19 +1,24 @@
-<div class="mat-elevation-z8">
-  <table mat-table [dataSource]="breeds" matSort>
-    <ng-container matColumnDef="breeds">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header class="bg-primary">Breed</th>
-      <td mat-cell *matCellDef="let breed" class="bg-white text-dark px-2">{{breed.name}}</td>
-    </ng-container>
-    <ng-container matColumnDef="country_code">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header class="bg-primary">Code</th>
-      <td mat-cell *matCellDef="let breed" class="bg-white text-dark px-2">{{breed.country_code}}</td>
-    </ng-container>
-    <ng-container matColumnDef="more_info">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header class="bg-primary"></th>
-      <td mat-cell *matCellDef="let breed" class="bg-white px-2"><a routerLink="/cats/{{breed.id}}">More info</a></td>
-    </ng-container>
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
-  <mat-paginator [pageSizeOptions]="[5, 10, 15]" [pageSize]="10" [length]="table_size" showFirstLastButtons></mat-paginator>
+<div class="cat-app">
+  <div class="breed-content"> <!-- Breed content -->
+    <table class="breed-table w-100" mat-table [dataSource]="breeds" matSort>
+      <ng-container matColumnDef="breeds">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="bg-primary px-2">Breed</th>
+        <td mat-cell *matCellDef="let breed" class="bg-white text-dark px-2">{{breed.name}}</td>
+      </ng-container>
+      <ng-container matColumnDef="country_code">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="bg-primary">Code</th>
+        <td mat-cell *matCellDef="let breed" class="bg-white text-dark px-2">{{breed.country_code}}</td>
+      </ng-container>
+      <ng-container matColumnDef="more_info">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="bg-primary"></th>
+        <td mat-cell *matCellDef="let breed" class="bg-white px-2"><a routerLink="/cats/{{breed.id}}">More info</a></td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div> <!-- End of breed content -->
+  <div class="paginator">
+    <mat-paginator [pageSizeOptions]="page_size_options" [pageSize]="page_size" [length]="table_size"
+      showFirstLastButtons></mat-paginator>
+  </div>
 </div>

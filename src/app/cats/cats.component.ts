@@ -14,6 +14,8 @@ export class CatsComponent implements OnInit, AfterViewInit {
   breeds: Breed[] = [];
   displayedColumns: string[] = ['breeds', 'country_code', 'more_info'];
   table_size: number = 0;
+  page_size: number = 5;
+  page_size_options: number [] = [5,10]
   constructor(
     public catService: CatService,
     private cdr: ChangeDetectorRef
@@ -21,15 +23,7 @@ export class CatsComponent implements OnInit, AfterViewInit {
 
 
   ngOnInit(): void {
-    // First call: request all to inicialize total size:
-    this.catService.getBreeds().subscribe(res => {
-      this.table_size = res.length;
-    });
-
-    // Second call: request default table breeds
-    this.catService.getBreeds(0,5).subscribe(res => {
-      this.breeds = res;
-    })
+    this.getBreeds();
 
   }
 
@@ -40,16 +34,22 @@ export class CatsComponent implements OnInit, AfterViewInit {
       this.catService.getBreeds(pageEvent.pageIndex, pageEvent.pageSize).subscribe(data => {
         this.breeds = data;
         this.cdr.detectChanges();
-        console.log('this.breeds: '+this.breeds);
+        console.log('this.breeds: ' + this.breeds);
       });
     });
   }
 
   getBreeds() {
-    /* this.catService.getBreeds(0,10).subscribe(res => {
-      this.breeds = res;
+
+    // First call: request all to inicialize total size:
+    this.catService.getBreeds().subscribe(res => {
       this.table_size = res.length;
-    }) */
+    });
+
+    // Second call: request default table breeds
+    this.catService.getBreeds(0, this.page_size).subscribe(res => {
+      this.breeds = res;
+    });
   }
 
 }
