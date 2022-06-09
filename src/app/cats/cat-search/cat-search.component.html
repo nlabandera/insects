@@ -1,12 +1,11 @@
 <div id="cat-search" >
   <div class="input-group">
-    <input for="search-box" id="search-box" #searchBox type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-    <button id="search-btn" type="button" class="btn btn-outline-dark">search</button> <!-- (input) = search(searchBox.value)-->
-
-    <ul id="search-result">
-      <li> <!-- *ngFor=let breed of breeds-->
-        <a href=""></a> <!-- routerLink=cats/{breed.id}-->
-      </li>
-    </ul>
+    <input for="search-box" id="search-box" #searchBox type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" (input) = search(searchBox.value) />
+    <input id="search-btn" type="button" class="btn btn-outline-dark" value="Search" (click) = search(searchBox.value)/> <!-- (input) = search(searchBox.value)-->
   </div>
+  <ul id="search-result">
+    <li *ngFor="let breed of breeds | async">
+      <a routerLink="/cats/{{breed.id}}">{{breed.name}}</a>
+    </li>
+  </ul>
 </div>
