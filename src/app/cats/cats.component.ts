@@ -29,13 +29,13 @@ export class CatsComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.getBreeds();
-    console.log(this.sort);
+    // console.log(this.sort);
 
   }
 
   ngAfterViewInit(): void {
 
-    console.log(this.paginator);
+    // console.log(this.paginator);
     this.paginator?.page.subscribe(pageEvent => {
       this.catService.getBreeds(pageEvent.pageIndex, pageEvent.pageSize, this.desc).subscribe(data => {
         // this.breeds = data;
