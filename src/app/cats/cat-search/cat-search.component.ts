@@ -9,7 +9,7 @@ import { Breed, CatService } from '../cat.service';
 })
 export class CatSearchComponent implements OnInit {
 
-  breeds!: Observable<Breed[]>
+  breeds: Breed[] = [];
   private searchTerm = new Subject<string>();
   constructor( private catService: CatService) { }
 
@@ -18,9 +18,11 @@ export class CatSearchComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.breeds = this.searchTerm.pipe(
+    this.searchTerm.pipe(
       switchMap((term: string)=> this.catService.search(term))
-    )
+    ).subscribe(res => {
+      this.breeds = res;
+    });
 
 
   }

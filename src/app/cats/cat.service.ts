@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { Observable, tap } from 'rxjs';
+import { concatMap, map, mergeMap, Observable, tap } from 'rxjs';
 import { MatPaginator } from '@angular/material/paginator';
 
 export class CatImage {
@@ -67,7 +67,7 @@ export class CatService {
     const url = `${this.catApi}/breeds/search?q=`;
     const req = this.httpClient.get<Breed[]>(url+term, this.httpHeader).pipe(
       tap(breed => breed.length ? console.log(`found breeds matching "${term}"`) : console.log(`no breeds matching "${term}"`))
-    )
+    );
     return req;
 
   }
